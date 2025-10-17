@@ -23,13 +23,29 @@ Fonts:
   This CSS uses the provided color palette and beginner-friendly styles.
 */
 
+/* Basic reset and fonts */
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #20383b;
+  background: #fff8ee; /* light beige page background */
+}
+
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-color: #fff7e1; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #222;
+}
+
+/* Simple container to center content */
+.container {
+  max-width: 1200px;  /* slightly wider container for better balance */
+  margin: 0 auto;
+  padding: 0 20px;    /* reduced side padding */
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -41,39 +57,177 @@ section {
   padding: 24px 16px;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+/* Top thin header bar (beige background like the reference) */
+.top-bar {
+  background: #faf1de; /* beige */
+  border-bottom: 1px solid #e0d9c7;
+}
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  height: 56px;
+}
+.logo {
+  color: #003366;
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  display: inline-block;
+  background: #003366; /* blue token behind a simple icon */
+  color: #123b45;
+  border-radius: 4px;
+  padding: 6px;
+  margin-right: 10px;
+  font-weight: bold;
+}
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Header styles */
+.site-header {
+  background: #f9fbf8;
+  border-bottom: 1px solid #e6eef2;
+}
+.header-inner {
+  display: flex;               /* use flexbox for simple horizontal layout */
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+.nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #0b6b7a;
+  font-size: 14px;
+}
+.donate-btn {
+  background: #FFC907;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* HERO SECTION */
+/* The hero-row is two columns using flexbox */
+.hero {
+  padding: 0;
+}
+.hero-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+}
+
+/* Left side: we will create an angled look by skewing the container,
+   then skewing the inner content back the opposite direction to keep text readable. */
+.hero-left {
+  flex: 1;
+  background: #063b57; /* dark blue */
+
+  /* Turn into a rectangle (no skew) */
+  transform: none;
+  transform-origin: unset;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  color: #ffd23f; /* yellow text for headline */
+  position: relative; /* make z-index reliable */
+
+  /* Break out horizontally so the blue panel stretches the full viewport width */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+
+  z-index: 0;         /* keep it behind the right image but above page background */
+}
+.hero-left-inner {
+  /* No un-skew needed now; keep content readable and aligned */
+  transform: none;
+  padding: 48px 24px;  /* reduced left padding to move text leftward */
+
+  /* Keep inner content aligned with the main centered container */
+  max-width: 800px;    /* limit content width for better readability */
+  margin-left: 70px;      /* align to left instead of center */
+  margin-right: auto;
+  width: 100%;
 }
 
 /* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+.hero-title {
+  margin: 0 0 14px;
+  font-size: 38px;
+  line-height: 1.05;
+  color: #ffd23f;
+  font-weight: 700;
 }
 
 /* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.hero-sub {
+  color: rgba(255,210,63,0.95);
+  max-width: 380px;    /* slightly narrower text column */
+  margin: 0 0 22px;
+}
+
+/* CTA box: dark rounded rectangle with the yellow button inside */
+.cta-box {
+  margin-top: 10px;
+  background: #0b4b68; /* slightly lighter dark-blue */
+  padding: 14px;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 6px 0 rgba(6,59,87,0.25); /* subtle bottom shadow like a raised card */
+}
+.donate-large {
+  background: #ffd23f; /* bright yellow */
+  color: #063b57;      /* dark-blue text on yellow button */
+  border: none;
+  padding: 14px 36px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.donate-large:active {
+  transform: translateY(2px);
+}
+
+/* Small note text below CTA */
+.hero-note {
+  margin-top: 18px;
+  color: #cfe8ea;
+}
+
+/* Right side: image */
+.hero-right {
+  width: 360px; /* fixed width like the reference layout */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  z-index: 3;         /* ensure the right-side image sits above the stretched left background */
+}
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Control the size of the image in the About section */
+.Cherrie {
+    width: 78%; /* Makes the container smaller than its parent */
+    margin: 0 auto; /* Centers the container */
+}
+
+.Cherrie img {
+    width: 78%; /* Makes the image fill its container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes any unwanted spacing */
 }
 
 /* Story Section Styles */
@@ -89,6 +243,11 @@ h2 {
   color: #2E9DF7; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
+}
+
+/* Style for section headers */
+section h2 {
+    color: #f09e06; /* Orange color for section headers */
 }
 
 /* Call-to-Action Section Styles */
@@ -136,11 +295,85 @@ section {
   margin-bottom: 20px;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
+/* Section spacing */
+.section {
+  padding: 36px 0;
+}
+.section.light {
+  background: #003366;
+}
+
+/* Two-column layout using flex (simple for beginners) */
+.two-col {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 12px;
+}
+.two-col > div {
+  flex: 1;
+}
+
+/* Image placeholder box */
+.image-box .placeholder {
+  background: #003366;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b6b7a;
+  border-radius: 6px;
+}
+
+/* Impact stats row */
+.stats-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+.stat {
+  flex: 1;
+  background: white;
+  border: 1px solid #e6eef2;
+  padding: 16px;
+  text-align: center;
+  border-radius: 6px;
+}
+.stat-number {
+  font-weight: bold;
+  font-size: 20px;
+  color: #05464b;
+}
+.stat-label {
+  color: #557b7d;
+  font-size: 13px;
+}
+
+/* Help list */
+.help-list {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+/* Footer */
+.site-footer {
+  background: #003366;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #557b7d;
+}
+
+/* Simple responsive adjustments for small screens */
+@media (max-width: 680px) {
+  .two-col, .stats-row {
+    flex-direction: column; /* stack columns on small screens */
+  }
+  .nav a {
+    margin-left: 8px;
+    font-size: 13px;
+  }
+}
 
 /* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
@@ -151,12 +384,12 @@ section {
   }
 
   /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
+  .hero-title {
     font-size: 1.4em;
   }
 
   /* Make subheadline font size smaller */
-  .hero p {
+  .hero-sub {
     font-size: 1em;
   }
 
@@ -195,4 +428,45 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* RESPONSIVE: stack columns on small screens so content remains readable */
+@media (max-width: 760px) {
+  .hero-row {
+    flex-direction: column;
+  }
+  .hero-right {
+    width: 100%;
+    height: 220px;
+  }
+  .hero-left {
+    min-height: auto;
+
+    /* Disable the full-width breakout on small screens so content stays simple */
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+  .hero-left-inner {
+    padding: 28px 20px;  /* consistent smaller padding on mobile */
+  }
+  .hero-title {
+    font-size: 28px;
+  }
+  .cta-box {
+    padding: 10px;
+  }
+  .donate-large {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* About section specific styles */
+.section .two-col > div:first-child {
+    background-color: #fed8c1;
+    padding: 20px;  /* Add some padding to make the background color look better */
+    border-radius: 8px;  /* Optional: adds rounded corners */
 }

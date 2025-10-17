@@ -1,47 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Charity: Water — Landing</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Header with simple navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Charity Water</div>
+      <nav class="nav">
+        <!-- Simple navigation links -->
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#help">Get Involved</a>
+        <a class="donate-btn" href="#donate">Donate</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- Top thin header bar with logo -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="logo">
+        <!-- simple text logo for teaching -->
+        <img src="img/water-can-transparent.png" alt="Water Icon" class="logo-icon" style="width: 50px; height: auto;" /> Charity: Water
+      </div>
+    </div>
+  </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- Hero: two columns, left area uses an angled background created with simple transform -->
+  <header class="hero">
+    <div class="container hero-row">
+      <!-- Left column: content sits inside a skewed box (we un-skew inner text) -->
+      <div class="hero-left">
+        <div class="hero-left-inner">
+          <h1 class="hero-title">Skip the Soda, Fund the Future</h1>
+          <p class="hero-sub">Every dollar donated helps set up another source of clean water for residents where the only reliable access for hydration is consumer sodas.</p>
+
+          <!-- CTA area: dark rounded box with a yellow button inside, matching the reference -->
+          <div class="cta-box" role="group" aria-label="Primary actions">
+            <button class="donate-large">Donate Now</button>
+          </div>
+
+          <p class="hero-note">Just even 10 dollars can change a life.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+      <!-- Right column: image of a child fetching water (use your own image file) -->
+      <div class="hero-right" aria-hidden="true">
+        <!-- Replace 'images/hero.jpg' with a real photo file in your workspace -->
+        <img src="img/Yellow Jerry.jpg" alt="" class="hero-image" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero section: main message and CTAs -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <h1>Clean water changes everything</h1>
+      <p>We bring safe, reliable water to communities so kids can go to school and families can thrive.</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="#donate">Donate</a>
+        <a class="btn" href="#about">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About: short explanation of mission -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About our work</h2>
+      <div class="two-col">
+        <!-- Column 1: text -->
+        <div>
+          <p>Our position as a Non-Profit aims to allocate 
+our services to establishing and securing clean sources of water 
+for regions where it would be difficult to sustain otherwise. With 
+our organization, every little bit counts, with just some help we 
+can get clean water established for many settlements.</p>
+        </div>
+        <!-- Column 2: simple image placeholder -->
+        <div class="image-box" aria-hidden="true">
+          <!-- Image placeholder for teaching purposes -->
+          <div  class="Cherrie"><img src="img/Cherrie water.jpg" alt="Child fetching water" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact: simple statistic cards -->
+  <section id="impact" class="section light">
+    <div class="container">
+      <h2>Our impact</h2>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Wells built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">500k+</div>
+          <div class="stat-label">People served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">150</div>
+          <div class="stat-label">Projects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to help: simple steps -->
+  <section id="help" class="section">
+    <div class="container">
+      <h2>How to help</h2>
+      <ol class="help-list">
+        <li>Donate to support a project.</li>
+        <li>Share our mission with friends and family.</li>
+        <li>Volunteer or partner locally.</li>
+      </ol>
+      <a class="btn primary" href="#donate">Get involved</a>
+    </div>
+  </section>
+
+  <!-- Footer with small copyright -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Charity Water — All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
